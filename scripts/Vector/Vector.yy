@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"Vector",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Vector",
+  "parent":{
+    "name":"Flock",
+    "path":"Flock.yyp",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

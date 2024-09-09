@@ -18,7 +18,10 @@
   },
   "name":"Flock",
   "resources":[
+    {"id":{"name":"o_birb","path":"objects/o_birb/o_birb.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"id":{"name":"Vector","path":"scripts/Vector/Vector.yy",},},
+    {"id":{"name":"s_birb","path":"sprites/s_birb/s_birb.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
