@@ -1,4 +1,4 @@
 
-velocity = new Vector(0, 0);
-accel = new Vector(0, 0);
-accel_force = .05;
+velocity = new Vector(1, 1);
+accel = new Vector(1, 1);
+accel_force = .1;

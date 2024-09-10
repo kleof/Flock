@@ -1,11 +1,10 @@
 
 var _dir = point_direction(x, y, mouse_x, mouse_y);
-var _accel_x = lengthdir_x(accel_force, _dir);
-var _accel_y = lengthdir_y(accel_force, _dir);
 
-accel.set(_accel_x, _accel_y);
+accel.set_from_angle(accel_force, _dir);
 velocity.add(accel);
+velocity.limit_magnitude(3);
 
 x += velocity.x;
 y += velocity.y;
-
+image_angle = point_direction(0, 0, velocity.x, velocity.y);
