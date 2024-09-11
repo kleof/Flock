@@ -10,6 +10,10 @@ function Vector(_x, _y) constructor {
 		x = lengthdir_x(_magnitude, _angle);
 		y = lengthdir_y(_magnitude, _angle);
 	}
+	static set_from_vector = function(_vector) {
+		x = _vector.x;
+		y = _vector.y;
+	}
 	
 	static add = function(_vector) {
 		x += _vector.x;
@@ -30,6 +34,9 @@ function Vector(_x, _y) constructor {
 	static get_magnitude = function() {
 		return sqrt(sqr(x) + sqr(y));
 	}
+	static get_direction = function() {
+		return point_direction(0, 0, x, y);
+	}
 	static normalize = function() {
 		if ((x != 0) || (y != 0)) {
 			var _factor = 1 / get_magnitude();
@@ -46,4 +53,15 @@ function Vector(_x, _y) constructor {
 			set_magnitude(_limit);
 		}
 	}
+}
+
+function Vector_0() : Vector() constructor {
+	x = 0;
+	y = 0;
+}
+
+function Vector_random(_magnitude) : Vector() constructor {
+	var _dir = random(360);
+	_magnitude ??= 1;
+	set_from_angle(_magnitude, _dir);
 }
