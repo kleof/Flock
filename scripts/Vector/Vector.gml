@@ -66,3 +66,32 @@ function Vector_random(_magnitude) : Vector() constructor {
 	set_from_angle(_magnitude, _dir);
 }
 
+//============ FUNCTIONS ============//
+
+function vector_copy(_vector) {
+	return new Vector(_vector.x, _vector.y);
+}
+
+function vector_subtract(_vector_a, _vector_b) {
+	return new Vector(_vector_a.x - _vector_b.x, _vector_a.y - _vector_b.y);
+}
+
+function seek_force(_x, _y) {
+	var _vec = new Vector(_x, _y);
+	_vec.subtract(position);
+	_vec.set_magnitude(max_speed);
+	_vec.subtract(velocity);
+	_vec.limit_magnitude(max_force);
+	return _vec;
+}
+
+function flee_force(_x, _y) {
+	var _vec = new Vector(_x, _y);
+	_vec.subtract(position);
+	_vec.set_magnitude(max_speed);
+	_vec.multiply(-1);
+	_vec.subtract(velocity);
+	_vec.limit_magnitude(max_force);
+	return _vec;
+}
+
