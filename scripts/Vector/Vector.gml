@@ -65,3 +65,4 @@ function Vector_random(_magnitude) : Vector() constructor {
 	_magnitude ??= 1;
 	set_from_angle(_magnitude, _dir);
 }
+

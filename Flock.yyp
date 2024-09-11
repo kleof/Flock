@@ -19,9 +19,13 @@
   "name":"Flock",
   "resources":[
     {"id":{"name":"o_birb","path":"objects/o_birb/o_birb.yy",},},
+    {"id":{"name":"o_map_control","path":"objects/o_map_control/o_map_control.yy",},},
+    {"id":{"name":"o_obstacle","path":"objects/o_obstacle/o_obstacle.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"id":{"name":"Functions","path":"scripts/Functions/Functions.yy",},},
     {"id":{"name":"Vector","path":"scripts/Vector/Vector.yy",},},
     {"id":{"name":"s_birb","path":"sprites/s_birb/s_birb.yy",},},
+    {"id":{"name":"s_obstacle","path":"sprites/s_obstacle/s_obstacle.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
