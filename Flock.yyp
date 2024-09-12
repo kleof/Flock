@@ -30,6 +30,8 @@
     {"id":{"name":"TGMX_Documentation","path":"notes/TGMX_Documentation/TGMX_Documentation.yy",},},
     {"id":{"name":"TGMX_Terms_of_Use","path":"notes/TGMX_Terms_of_Use/TGMX_Terms_of_Use.yy",},},
     {"id":{"name":"TGMX_Update_Log","path":"notes/TGMX_Update_Log/TGMX_Update_Log.yy",},},
+    {"id":{"name":"o_birb_evader","path":"objects/o_birb_evader/o_birb_evader.yy",},},
+    {"id":{"name":"o_birb_seeker","path":"objects/o_birb_seeker/o_birb_seeker.yy",},},
     {"id":{"name":"o_birb","path":"objects/o_birb/o_birb.yy",},},
     {"id":{"name":"o_map_control","path":"objects/o_map_control/o_map_control.yy",},},
     {"id":{"name":"o_obstacle","path":"objects/o_obstacle/o_obstacle.yy",},},

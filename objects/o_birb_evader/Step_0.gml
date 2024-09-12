@@ -1,6 +1,5 @@
 
-//steering.add(flee_force(mouse_x, mouse_y));
-steering.add(arrive_force(mouse_x, mouse_y, 50));
+steering.add(evade_force(o_birb_seeker));
 
 velocity.add(steering);
 velocity.limit_magnitude(max_speed);

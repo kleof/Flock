@@ -66,6 +66,11 @@ function Vector_random(_magnitude) : Vector() constructor {
 	set_from_angle(_magnitude, _dir);
 }
 
+function Vector_from_angle(_magnitude, _angle) : Vector() constructor {
+	x = lengthdir_x(_magnitude, _angle);
+	y = lengthdir_y(_magnitude, _angle);
+}
+
 //============ FUNCTIONS ============//
 
 function vector_copy(_vector) {
@@ -95,3 +100,34 @@ function flee_force(_x, _y) {
 	return _vec;
 }
 
+function pursue_force(_id) {
+	var _vec = vector_copy(_id.velocity);
+	_vec.multiply(10); // how far we predict instance movement
+	_vec.add(_id.position);
+	
+	return seek_force(_vec.x, _vec.y);
+}
+
+function evade_force(_id) {
+	var _vec = vector_copy(_id.velocity);
+	_vec.multiply(10); // how far we predict instance movement
+	_vec.add(_id.position);
+	
+	return flee_force(_vec.x, _vec.y);
+}
+
+function arrive_force(_x, _y, _slow_radius) {
+	var _vec = new Vector(_x, _y);
+	_vec.subtract(position);
+	
+	var _dist = _vec.get_magnitude();
+	if (_dist > _slow_radius) {
+		_vec.set_magnitude(max_speed);
+	} else {
+		_vec.set_magnitude(max_speed * (_dist/_slow_radius));
+	}
+	
+	_vec.subtract(velocity);
+	_vec.limit_magnitude(max_force);
+	return _vec;
+}
