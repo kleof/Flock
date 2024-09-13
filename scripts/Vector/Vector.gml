@@ -19,6 +19,10 @@ function Vector(_x, _y) constructor {
 		x += _vector.x;
 		y += _vector.y;
 	}
+	static add_weighted = function(_force, _weight=1) {
+		_force.multiply(_weight);
+		self.add(_force);
+	}
 	static subtract = function(_vector) {
 		x -= _vector.x;
 		y -= _vector.y;
@@ -55,11 +59,6 @@ function Vector(_x, _y) constructor {
 	}
 }
 
-function Vector_0() : Vector() constructor {
-	x = 0;
-	y = 0;
-}
-
 function Vector_random(_magnitude) : Vector() constructor {
 	var _dir = random(360);
 	_magnitude ??= 1;
@@ -80,6 +79,11 @@ function vector_copy(_vector) {
 function vector_subtract(_vector_a, _vector_b) {
 	return new Vector(_vector_a.x - _vector_b.x, _vector_a.y - _vector_b.y);
 }
+
+//function apply_force(_vec, _force, _weight=1) {
+//	_force.multiply(_weight);
+//	_vec.add(_force);
+//}
 
 function seek_force(_x, _y) {
 	var _vec = new Vector(_x, _y);
@@ -116,7 +120,7 @@ function evade_force(_id) {
 	return flee_force(_vec.x, _vec.y);
 }
 
-function arrive_force(_x, _y, _slow_radius) {
+function arrive_force(_x, _y, _slow_radius=50) {
 	var _vec = new Vector(_x, _y);
 	_vec.subtract(position);
 	
@@ -131,3 +135,58 @@ function arrive_force(_x, _y, _slow_radius) {
 	_vec.limit_magnitude(max_force);
 	return _vec;
 }
+
+function wander_force() {
+	var _vec = vector_copy(velocity);
+	_vec.set_magnitude(wander_dist);
+	_vec.add(new Vector_from_angle(wander_power, image_angle+wander_angle));
+	_vec.limit_magnitude(max_force);
+	
+	wander_angle += random_range(-wander_change, wander_change);
+	
+	return _vec;
+}
+	
+function private_space_force(_obj=object_index, _max_dist=20) {
+	var _vec = new Vector(0, 0);
+	var _count = 0;
+	var _vec_to;
+	
+	var _list = ds_list_create();
+	var _num = collision_circle_list(x, y, _max_dist, _obj, false, true, _list, false);
+	for (var i = 0; i < _num; i++) {
+		var _inst = _list[| i];
+		with (_inst) {	
+			_vec_to = vector_subtract(other.position, position);
+			var _dist = min(_vec_to.get_magnitude(), _max_dist);
+			var _scale = 1- _dist/_max_dist;
+			_vec_to.multiply(_scale);
+			_vec.add(_vec_to);
+		}
+		_count += 1;
+	}
+	ds_list_destroy(_list);
+	
+	//with (_obj) {
+	//	if (id == other.id) continue;
+	//	if (point_distance(x, y, other.x, other.y) > _max_dist) continue;
+		
+	//	_vec_to = vector_subtract(other.position, position);
+	//	var _dist = min(_vec_to.get_magnitude(), _max_dist);
+	//	var _scale = 1- _dist/_max_dist;
+	//	_vec_to.multiply(_scale);
+	//	_vec.add(_vec_to);
+	//	_count += 1;
+	//}
+	
+	if (_count > 0) _vec.set_magnitude(max_force);
+		
+	return _vec;
+}
+
+
+
+
+
+
+

@@ -1,12 +1,12 @@
 {
   "$GMObject":"",
-  "%Name":"o_birb_evader",
+  "%Name":"o_birb_wander",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"o_birb_evader",
+  "name":"o_birb_wander",
   "overriddenProperties":[],
   "parent":{
     "name":"Flock",

@@ -1,7 +1,8 @@
+image_blend = #FFFF78;
 
 position = new Vector(x, y);
-velocity = new Vector_0();
-steering = new Vector_0();
+velocity = new Vector(0, 0);
+steering = new Vector(0, 0);
 
 max_speed = 3;
-max_force = .1;
+max_force = .3;

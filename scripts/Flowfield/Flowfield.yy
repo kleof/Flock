@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"Functions",
+  "%Name":"Flowfield",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"Functions",
+  "name":"Flowfield",
   "parent":{
     "name":"Flock",
     "path":"Flock.yyp",
