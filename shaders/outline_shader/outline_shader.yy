@@ -1,0 +1,12 @@
+{
+  "$GMShader":"",
+  "%Name":"outline_shader",
+  "name":"outline_shader",
+  "parent":{
+    "name":"Flock",
+    "path":"Flock.yyp",
+  },
+  "resourceType":"GMShader",
+  "resourceVersion":"2.0",
+  "type":1,
+}

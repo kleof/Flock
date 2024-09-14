@@ -20,8 +20,9 @@ function Vector(_x, _y) constructor {
 		y += _vector.y;
 	}
 	static add_weighted = function(_force, _weight=1) {
-		_force.multiply(_weight);
-		self.add(_force);
+		var _copy = vector_copy(_force);
+		_copy.multiply(_weight);
+		add(_copy);
 	}
 	static subtract = function(_vector) {
 		x -= _vector.x;
@@ -79,11 +80,6 @@ function vector_copy(_vector) {
 function vector_subtract(_vector_a, _vector_b) {
 	return new Vector(_vector_a.x - _vector_b.x, _vector_a.y - _vector_b.y);
 }
-
-//function apply_force(_vec, _force, _weight=1) {
-//	_force.multiply(_weight);
-//	_vec.add(_force);
-//}
 
 function seek_force(_x, _y) {
 	var _vec = new Vector(_x, _y);
@@ -166,18 +162,6 @@ function private_space_force(_obj=object_index, _max_dist=20) {
 		_count += 1;
 	}
 	ds_list_destroy(_list);
-	
-	//with (_obj) {
-	//	if (id == other.id) continue;
-	//	if (point_distance(x, y, other.x, other.y) > _max_dist) continue;
-		
-	//	_vec_to = vector_subtract(other.position, position);
-	//	var _dist = min(_vec_to.get_magnitude(), _max_dist);
-	//	var _scale = 1- _dist/_max_dist;
-	//	_vec_to.multiply(_scale);
-	//	_vec.add(_vec_to);
-	//	_count += 1;
-	//}
 	
 	if (_count > 0) _vec.set_magnitude(max_force);
 		
