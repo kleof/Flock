@@ -65,6 +65,7 @@
     {"id":{"name":"TGMX_System","path":"scripts/TGMX_System/TGMX_System.yy",},},
     {"id":{"name":"Vector","path":"scripts/Vector/Vector.yy",},},
     {"id":{"name":"outline_shader","path":"shaders/outline_shader/outline_shader.yy",},},
+    {"id":{"name":"outline_shader2","path":"shaders/outline_shader2/outline_shader2.yy",},},
     {"id":{"name":"sh_outline","path":"shaders/sh_outline/sh_outline.yy",},},
     {"id":{"name":"s_birb","path":"sprites/s_birb/s_birb.yy",},},
     {"id":{"name":"s_obstacle","path":"sprites/s_obstacle/s_obstacle.yy",},},
